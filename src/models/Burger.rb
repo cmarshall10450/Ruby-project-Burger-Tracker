@@ -20,4 +20,14 @@ class Burger
 		@id = SQLRunner.run(sql, values)[0]['id'].to_i
 	end
 
+	def self.all
+		sql = 'SELECT * FROM burger;'
+
+		burgers = SQLRunner.run(sql).map { |burger|
+			self.new(burger)
+		}
+
+		return burgers
+	end
+
 end
