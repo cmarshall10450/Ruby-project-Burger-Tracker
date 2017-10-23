@@ -44,7 +44,7 @@ class Eatery
 		sql = 'SELECT * FROM eatery;'
 
 		eateries = SQLRunner.run(sql).map { |eatery|
-			self.new(eatery)
+			Eatery.new(eatery)
 		}
 
 		return eateries

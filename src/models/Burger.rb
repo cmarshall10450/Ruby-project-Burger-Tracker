@@ -24,10 +24,17 @@ class Burger
 		sql = 'SELECT * FROM burger;'
 
 		burgers = SQLRunner.run(sql).map { |burger|
-			self.new(burger)
+			Burger.new(burger)
 		}
 
 		return burgers
 	end
 
+	def self.find(id)
+		sql    = 'SELECT * FROM burger WHERE id = $1'
+		values = [id]
+
+		burger = SQLRunner.run(sql, values)[0]
+		return Burger.new(burger)
+	end
 end
