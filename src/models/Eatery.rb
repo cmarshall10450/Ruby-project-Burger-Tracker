@@ -33,7 +33,11 @@ class Eatery
 	end
 
 	def self.find(id)
+		sql    = 'SELECT * FROM eatery WHERE id = $1'
+		values = [id]
 
+		result = SQLRunner.run(sql, values)[0]
+		return Eatery.new(result)
 	end
 
 	def self.all
