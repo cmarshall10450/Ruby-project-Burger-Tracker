@@ -1,7 +1,7 @@
 require('pry')
-require_relative('../../src/models/model')
-require_relative('../../src/models/model')
-require_relative('../../src/models/del')
+require_relative('../models/Eatery.model')
+require_relative('../models/Burger.model')
+require_relative('../models/Deal.model')
 
 eatery_1 = Eatery.new({
 	'name'        => 'Bread Meats Bread',

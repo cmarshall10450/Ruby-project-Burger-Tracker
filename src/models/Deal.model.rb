@@ -41,4 +41,12 @@ class Deal
 		return Deal.new(deal)
 	end
 
+	def full_name
+		sql    = "SELECT concat(deal.name, ' at ', eatery.name) AS full_deal_name FROM deal
+					 INNER JOIN eatery
+					 ON deal.eatery_id = eatery.id;"
+		result = SQLRunner.run(sql)[0]
+		return result['full_deal_name']
+	end
+
 end
