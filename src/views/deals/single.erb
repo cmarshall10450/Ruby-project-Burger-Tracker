@@ -1,0 +1,8 @@
+<h1><%= @deal.full_name %></h1>
+
+<h2>Burgers</h2>
+<ul>
+  <% @deal.burgers.each do |burger| %>
+      <li><%= burger.name %></li>
+  <% end %>
+</ul>

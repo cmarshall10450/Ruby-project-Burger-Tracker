@@ -1,7 +1,7 @@
 <ul>
   <% @burgers.each do |burger| %>
       <li>
-        <%= burger.name %>
+        <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
       </li>
   <% end %>
 </ul>

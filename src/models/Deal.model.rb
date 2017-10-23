@@ -2,7 +2,7 @@ require_relative('../db/SQLRunner')
 
 class Deal
 
-	attr_reader :name, :day, :discount_rate, :eatery_id
+	attr_reader :id, :name, :day, :discount_rate, :eatery_id
 
 	def initialize(options)
 		@id            = options['id'].to_i if options['id']
@@ -47,6 +47,18 @@ class Deal
 					 ON deal.eatery_id = eatery.id;"
 		result = SQLRunner.run(sql)[0]
 		return result['full_deal_name']
+	end
+
+	def burgers
+		sql     = 'SELECT burger.* FROM burger
+					 INNER JOIN burger_deal
+					 ON deal_id = $1;'
+		values  = [@id]
+		burgers = SQLRunner.run(sql, values).map { |burger|
+			Burger.new(burger)
+		}
+
+		return burgers
 	end
 
 end

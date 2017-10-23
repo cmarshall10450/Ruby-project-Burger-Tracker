@@ -1,0 +1,18 @@
+<img src="<%= @eatery.image_url %>">
+<h1><%= @eatery.name %></h1>
+<h3><%= @eatery.address %></h3>
+<h3><a href="<%= @eatery.website_url %>"><%= @eatery.website_url %></h3></a>
+
+<h2>Deals</h2>
+<ul>
+  <% @eatery.deals.each do |deal| %>
+      <li><%= deal.full_name %></li>
+  <% end %>
+</ul>
+
+<h2>Burgers</h2>
+<ul>
+  <% @eatery.burgers.each do |burger| %>
+      <li><%= burger.name %></li>
+  <% end %>
+</ul>

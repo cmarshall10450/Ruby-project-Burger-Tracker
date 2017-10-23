@@ -2,6 +2,7 @@ require('pry')
 require_relative('../models/Eatery.model')
 require_relative('../models/Burger.model')
 require_relative('../models/Deal.model')
+require_relative('../models/Burger_deal.model')
 
 eatery_1 = Eatery.new({
 	'name'        => 'Bread Meats Bread',
@@ -16,7 +17,8 @@ eatery_1.save
 burger_1 = Burger.new({
 	'name'      => 'Chicken, Cheese & Bacon',
 	'price'     => 9.50,
-	'eatery_id' => 1
+	'eatery_id' => 1,
+	'image_url' => 'http://breadmeatsbread.com/perch/resources/cali-burger.jpg'
 })
 burger_1.save
 
@@ -27,6 +29,12 @@ deal_1 = Deal.new({
 	'eatery_id'     => 1
 })
 deal_1.save
+
+burger_deal_1 = BurgerDeal.new({
+	'burger_id' => 1,
+	'deal_id'   => 1
+})
+burger_deal_1.save
 
 binding.pry
 nil
