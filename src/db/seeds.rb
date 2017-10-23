@@ -1,6 +1,7 @@
 require('pry')
 require_relative('../../src/models/Eatery')
 require_relative('../../src/models/Burger')
+require_relative('../../src/models/Deal')
 
 eatery_1 = Eatery.new({
 	'name'        => 'Bread Meats Bread',
@@ -18,6 +19,14 @@ burger_1 = Burger.new({
 	'eatery_id' => 1
 })
 burger_1.save
+
+deal_1 = Deal.new({
+	'name'          => '15% off',
+	'day'           => 'Monday',
+	'discount_rate' => 15,
+	'eatery_id'     => 1
+})
+deal_1.save
 
 binding.pry
 nil
