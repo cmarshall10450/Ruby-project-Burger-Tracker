@@ -1,10 +1,12 @@
 <h1><%= @burger.name %></h1>
-<h3><%= @burger.eatery.name %></h3>
+<h3><a href="/eateries/<%= @burger.eatery.id %>"><%= @burger.eatery.name %></a></h3>
 <h3>&pound;<%= @burger.price %></h3>
 
 <h2>Deals</h2>
 <ul>
   <% @burger.deals.each do |deal| %>
-      <li><%= deal.full_name %></li>
+      <li>
+        <a href="/deals/<%= deal.id %>"><%= deal.full_name %></a>
+      </li>
   <% end %>
 </ul>

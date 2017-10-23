@@ -22,6 +22,14 @@ burger_1 = Burger.new({
 })
 burger_1.save
 
+burger_2 = Burger.new({
+	'name'      => 'Melty Moo Moo',
+	'price'     => 5.99,
+	'eatery_id' => 1,
+	'image_url' => 'http://breadmeatsbread.com/images/about-image-3.jpg'
+})
+burger_2.save
+
 deal_1 = Deal.new({
 	'name'          => '15% off',
 	'day'           => 'Monday',
@@ -35,6 +43,12 @@ burger_deal_1 = BurgerDeal.new({
 	'deal_id'   => 1
 })
 burger_deal_1.save
+
+burger_deal_2 = BurgerDeal.new({
+	'burger_id' => 2,
+	'deal_id'   => 1
+})
+burger_deal_2.save
 
 binding.pry
 nil

@@ -3,6 +3,9 @@
 <h2>Burgers</h2>
 <ul>
   <% @deal.burgers.each do |burger| %>
-      <li><%= burger.name %></li>
+      <li>
+        <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
+        <span><%= burger.price %></span>
+      </li>
   <% end %>
 </ul>

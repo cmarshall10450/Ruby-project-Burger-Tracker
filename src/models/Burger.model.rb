@@ -62,15 +62,4 @@ class Burger
 		eatery = SQLRunner.run(sql, values)[0]
 		return Eatery.new(eatery)
 	end
-
-	def new_price
-		sql    = 'SELECT (burger.price / 100) * (100 - deal.discount_rate) AS new_price FROM burger
-					INNER JOIN burger_deal
-					ON burger.id = burger_deal.burger_id
-					INNER JOIN deal
-					ON deal_id = burger_deal.deal_id
-					WHERE burger.id = $1;'
-		values = [@id]
-		return SQLRunner.run(sql, values)[0]['new_price'].to_i
-	end
 end

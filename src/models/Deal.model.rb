@@ -51,8 +51,9 @@ class Deal
 
 	def burgers
 		sql     = 'SELECT burger.* FROM burger
-					 INNER JOIN burger_deal
-					 ON deal_id = $1;'
+							 INNER JOIN burger_deal
+							 ON burger.id = burger_deal.burger_id
+							 WHERE deal_id = $1;'
 		values  = [@id]
 		burgers = SQLRunner.run(sql, values).map { |burger|
 			Burger.new(burger)

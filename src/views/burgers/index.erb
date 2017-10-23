@@ -1,7 +1,9 @@
 <ul>
-  <% @burgers.each do |burger| %>
-      <li>
-        <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
-      </li>
+  <% if @burgers.count > 0 %>
+      <% @burgers.each do |burger| %>
+          <li>
+            <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
+          </li>
+      <% end %>
   <% end %>
 </ul>

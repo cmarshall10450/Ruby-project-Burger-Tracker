@@ -55,7 +55,7 @@ class Eatery
 	end
 
 	def burgers
-		sql    = 'SELECT *FROM burger WHERE eatery_id = $1;'
+		sql    = 'SELECT * FROM burger WHERE eatery_id = $1;'
 		values = [@id]
 
 		burgers = SQLRunner.run(sql, values).map { |burger|
