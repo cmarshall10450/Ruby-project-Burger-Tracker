@@ -3,7 +3,7 @@ require_relative('./config')
 
 class SQLRunner
 
-	def run(sql, values)
+	def self.run(sql, values = [])
 		begin
 			db = PG.connect($db)
 			db.prepare('query', sql)

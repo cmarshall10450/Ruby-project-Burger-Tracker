@@ -1,4 +1,4 @@
-require_relative('../../db/SQLRunner')
+require_relative('../db/SQLRunner')
 
 class Eatery
 
@@ -16,8 +16,8 @@ class Eatery
 		sql = 'INSERT INTO eatery (name, address, telephone, email, website_url, image_url)
 		VALUES (
 			$1, $2, $3, $4, $5, $6
-		);
-		RETURNING id'
+		)
+		RETURNING id;'
 
 		values = [@name, @address, @telephone, @email, @website_url, @image_url]
 
@@ -37,8 +37,12 @@ class Eatery
 	end
 
 	def self.all
+		sql = 'SELECT * FROM eatery;'
 
+		eateries = SQLRunner.run(sql).map { |eatery|
+			self.new(eatery)
+		}
+
+		return eateries
 	end
-
-
 end
