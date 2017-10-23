@@ -2,6 +2,8 @@ require_relative('../db/SQLRunner')
 
 class Eatery
 
+	attr_reader :name, :image_url, :website_url, :email, :address, :telephone
+
 	def initialize(options)
 		@id          = options['id'].to_i if options['id']
 		@name        = options['name']

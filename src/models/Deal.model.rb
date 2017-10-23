@@ -2,6 +2,8 @@ require_relative('../db/SQLRunner')
 
 class Deal
 
+	attr_reader :name, :day, :discount_rate, :eatery_id
+
 	def initialize(options)
 		@id            = options['id'].to_i if options['id']
 		@name          = options['name']
