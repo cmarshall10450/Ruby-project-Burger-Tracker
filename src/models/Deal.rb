@@ -21,4 +21,22 @@ class Deal
 		@id = SQLRunner.run(sql, values)[0]['id'].to_i
 	end
 
+	def self.all
+		sql = 'SELECT * FROM deal;'
+
+		deals = SQLRunner.run(sql).map { |deal|
+			Deal.new(deal)
+		}
+
+		return deals
+	end
+
+	def self.find(id)
+		sql    = 'SELECT * FROM deal WHERE id = $1;'
+		values = [id]
+
+		deal = SQLRunner.run(sql, values)[0]
+		return Deal.new(deal)
+	end
+
 end
