@@ -17,7 +17,7 @@ get '/eateries/:id' do
 end
 
 post '/eateries' do
-	eatery= Eatery.new(params)
+	eatery = Eatery.new(params)
 	eatery.save
 
 	redirect to '/eateries'
