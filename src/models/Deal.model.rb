@@ -42,6 +42,17 @@ class Deal
 		return Deal.new(deal)
 	end
 
+	def self.find_by_day(day)
+		sql    = 'SELECT * FROM deal WHERE day = $1'
+		values = [day]
+
+		deals = SQLRunner.run(sql, values).map { |deal|
+			Deal.new(deal)
+		}
+
+		return deals
+	end
+
 	def full_name
 		sql    = 'SELECT deal.name AS deal_name, eatery.name AS eatery_name FROM deal
 					 INNER JOIN eatery

@@ -4,7 +4,7 @@
 
 .feature {
   height:              25vh;
-  background-image:    url('https://media.timeout.com/images/103902673/image.jpg');
+  background:          linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('https://media.timeout.com/images/103902673/image.jpg');
   background-position: center;
   background-size:     cover;
   background-repeat:   no-repeat;
@@ -16,6 +16,11 @@
 .feature h1 {
   color:      #fff;
   text-align: center;
+  font-size:  3rem;
+}
+
+.content-wrapper {
+  min-height: 70vh;
 }
 
 .sidebar {
@@ -27,6 +32,10 @@
 
 .sidebar form {
   border: none;
+}
+
+.sidebar .field {
+  padddng: 0
 }
 
 .sidebar select {

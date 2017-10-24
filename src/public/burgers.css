@@ -33,3 +33,9 @@
   justify-content:            flex-end;
   align-items:                center;
 }
+
+.single-burger .description {
+  margin-top: 1rem;
+  padding:    1rem;
+  background: #eee;
+}

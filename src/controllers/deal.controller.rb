@@ -6,8 +6,15 @@ require_relative('../models/Eatery.model')
 require_relative('../models/Burger.model')
 
 get '/deals' do
-	@deals = Deal.all
-	@days  = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+	if params['selected_day'] && params['selected_day'] != 'all'
+		@deals        = Deal.find_by_day(params['selected_day'])
+		@selected_day = params['selected_day']
+	else
+		@deals = Deal.all
+	end
+
+	@days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 	erb(:'deals/index')
 end
 

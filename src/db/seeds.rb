@@ -15,18 +15,20 @@ eatery_1 = Eatery.new({
 eatery_1.save
 
 burger_1 = Burger.new({
-	'name'      => 'Chicken, Cheese & Bacon',
-	'price'     => 9.50,
-	'eatery_id' => 1,
-	'image_url' => 'http://breadmeatsbread.com/perch/resources/cali-burger.jpg'
+	'name'        => 'Chicken, Cheese & Bacon',
+	'price'       => 9.50,
+	'description' => 'With American cheese, slow onions, pickle and burger sauce.',
+	'eatery_id'   => 1,
+	'image_url'   => 'http://breadmeatsbread.com/perch/resources/cali-burger.jpg'
 })
 burger_1.save
 
 burger_2 = Burger.new({
-	'name'      => 'Melty Moo Moo',
-	'price'     => 5.99,
-	'eatery_id' => 1,
-	'image_url' => 'http://breadmeatsbread.com/images/about-image-3.jpg'
+	'name'        => 'Melty Moo Moo',
+	'price'       => 5.99,
+	'description' => 'Double smashed burger with American cheese, candied bacon, spicy beefy mayo and crispy fried onions inside a grilled glazed ring Donut.',
+	'eatery_id'   => 1,
+	'image_url'   => 'http://breadmeatsbread.com/images/about-image-3.jpg'
 })
 burger_2.save
 

@@ -7,16 +7,16 @@
   <div class="content-wrapper">
     <div class="sidebar">
       <form action="/deals" method="get">
-        <div class="field row">
-          <div class="col-12">
-            <select name="selected_day" id="selected_day">
-              <% @days.each do |day| %>
-                  <option value="<%= day %>"><%= day %></option>
-              <% end %>
-            </select>
-          </div>
-        </div>
-
+        <select name="selected_day" id="selected_day">
+          <option value="all">All</option>
+          <% @days.each do |day| %>
+              <option
+              <%= 'selected' if @selected_day == day %>
+              value="<%= day %>">
+                <%= day %>
+              </option>
+          <% end %>
+        </select>
         <input class="btn btn-green btn-block" type="submit" value="Update Deals"/>
       </form>
     </div>
@@ -24,7 +24,11 @@
     <div class="main-content">
       <div class="section">
         <div class="section-heading">
-          <h1>All Deals</h1>
+          <% if @selected_day %>
+              <h1><%= @selected_day %> Deals</h1>
+          <% else %>
+              <h1>All Deals</h1>
+          <% end %>
           <a href="/deals/new" class="btn btn-green">Add Deal</a>
         </div>
         <div class="deals">

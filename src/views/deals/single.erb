@@ -25,6 +25,7 @@
                       <span class="old-price">&pound;<%= burger.price %></span>
                       <span class="new-price">&pound;<%= ((burger.price.to_f / 100) * (100 - @deal.discount_rate.to_f)).round(2) %></span>
                     </div>
+                    <p class="description"><%= burger.description %></p>
                   </div>
                   <div class="burger-footer">
                     <a class='btn btn-blue' href='/burgers/<%= burger.id %>' class="view-burger">View Burger</a>
