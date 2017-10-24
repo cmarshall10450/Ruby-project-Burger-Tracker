@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/Deal.model')
 require_relative('../models/Eatery.model')
+require_relative('../models/Burger.model')
 
 get '/deals' do
 	@deals    = Deal.all
@@ -12,6 +13,7 @@ end
 get '/deals/new' do
 	@days     = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 	@eateries = Eatery.all
+	@burgers  = Burger.all
 	erb(:'deals/new')
 end
 

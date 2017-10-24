@@ -1,25 +1,48 @@
-<form action="/burgers" method="post">
+<div class="new-burger-form">
+  <div class="container">
+    <div class="section">
+      <div class="section-heading">
+        <h1>Add New Burger</h1>
+      </div>
 
-  <div class="field">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name"/>
-  </div>
+      <form action="/burgers" method="post">
 
-  <div class="field">
-    <label for="price">Price</label>
-    <input type="text" name="price" id="price"/>
-  </div>
+        <div class="field row">
+          <div class="col-2">
+            <label for="name">Name</label>
+          </div>
+          <div class="col-10">
+            <input type="text" name="name" id="name"/>
+          </div>
+        </div>
 
-  <div class="field">
-    <label for="eatery">Eatery</label>
-    <select name="eatery_id" id="eatery">
-      <% @eateries.each do |eatery| %>
-          <option value="<%= eatery.id %>"><%= eatery.name %></option>
-      <% end %>
-    </select>
-  </div>
+        <div class="field row">
+          <div class="col-2">
+            <label for="price">Price</label>
+          </div>
+          <div class="col-10">
+            <input type="text" name="price" id="price"/>
+          </div>
+        </div>
 
-  <div class="form-footer">
-    <input type="submit" value="Add Burger"/>
+        <div class="field row">
+          <div class="col-2">
+            <label for="eatery">Eatery</label>
+          </div>
+          <div class="col-10">
+            <select name="eatery_id" id="eatery">
+              <% @eateries.each do |eatery| %>
+                  <option value="<%= eatery.id %>"><%= eatery.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <input type="submit" class="btn btn-green" value="Add Burger"/>
+        </div>
+      </form>
+
+    </div>
   </div>
-</form>
+</div>

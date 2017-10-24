@@ -1,34 +1,72 @@
-<form action="/deals" method="post">
+<div class="new-deal-form">
+  <div class="container">
+    <div class="section">
+      <div class="section-heading">
+        <h1>Add New Deal</h1>
+      </div>
 
-  <div class="field">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name"/>
-  </div>
+      <form action="/deals" method="post">
 
-  <div class="field">
-    <label for="day">Day</label>
-    <select name="day" id="day">
-      <% @days.each do |day| %>
-          <option value="<%= day %>"><%= day %></option>
-      <% end %>
-    </select>
-  </div>
+        <div class="field row">
+          <div class="col-2">
+            <label for="name">Name</label>
+          </div>
+          <div class="col-10">
+            <input type="text" name="name" id="name"/>
+          </div>
+        </div>
 
-  <div class="field">
-    <label for="discount-rate">Discount Rate</label>
-    <input type="text" name="discount_rate" id="discount-rate"/>%
-  </div>
+        <div class="field row">
+          <div class="col-2">
+            <label for="day">Day</label>
+          </div>
+          <div class="col-10">
+            <select name="day" id="day">
+              <% @days.each do |day| %>
+                  <option value="<%= day %>"><%= day %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
 
-  <div class="field">
-    <label for="eatery">Eatery</label>
-    <select name="eatery_id" id="eatery">
-      <% @eateries.each do |eatery| %>
-          <option value="<%= eatery.id %>"><%= eatery.name %></option>
-      <% end %>
-    </select>
-  </div>
+        <div class="field row">
+          <div class="col-2">
+            <label for="discount-rate">Discount Rate</label>
+          </div>
+          <div class="col-10">
+            <input type="number" name="discount_rate" id="discount-rate" min="1" max="100"/>
+          </div>
+        </div>
 
-  <div class="form-footer">
-    <input type="submit" value="Add Deal"/>
+        <div class="field row">
+          <div class="col-2">
+            <label for="eatery">Eatery</label>
+          </div>
+          <div class="col-10">
+            <select name="eatery_id" id="eatery">
+              <% @eateries.each do |eatery| %>
+                  <option value="<%= eatery.id %>"><%= eatery.name %></option>
+              <% end %>
+            </select>
+          </div>
+
+          <div>
+            <h3>Burgers</h3>
+            <div class="field row">
+              <div class="col-12">
+                <div class="row"></div>
+                <% @burgers.each do |burger| %>
+                    <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/> <%= burger.name %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <input type="submit" class="btn btn-green" value="Add Deal"/>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
+</div>

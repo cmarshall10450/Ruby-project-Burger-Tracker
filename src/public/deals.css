@@ -1,4 +1,4 @@
-.single-deal {
+.single-deal, .new-deal-form {
   background-color: #EFE5CB;
 }
 
@@ -37,8 +37,12 @@
 }
 
 .deal {
-  border:        1px solid rgba(0, 0, 0, 0.87);
-  border-radius: 10px;
+  border:          1px solid rgba(0, 0, 0, 0.87);
+  border-radius:   10px;
+  height:          100%;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: space-between;
 }
 
 .deal img {
