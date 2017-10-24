@@ -211,7 +211,7 @@ form {
   display:    inline-block;
 }
 
-.field input, .field select {
+.field input, .field select, .field textarea {
   width:     100%;
   padding:   .5rem 1rem;
   font-size: 1rem;

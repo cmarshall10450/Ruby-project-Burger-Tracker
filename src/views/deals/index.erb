@@ -6,13 +6,15 @@
 
   <div class="content-wrapper">
     <div class="sidebar">
-      <form action="/">
-        <div class="field">
-          <select name="eatery_id" id="eatery">
-            <% @eateries.each do |eatery| %>
-                <option value="<%= eatery.id %>"><%= eatery.name %></option>
-            <% end %>
-          </select>
+      <form action="/deals" method="get">
+        <div class="field row">
+          <div class="col-12">
+            <select name="selected_day" id="selected_day">
+              <% @days.each do |day| %>
+                  <option value="<%= day %>"><%= day %></option>
+              <% end %>
+            </select>
+          </div>
         </div>
 
         <input class="btn btn-green btn-block" type="submit" value="Update Deals"/>

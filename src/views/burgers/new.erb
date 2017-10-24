@@ -6,13 +6,21 @@
       </div>
 
       <form action="/burgers" method="post">
-
         <div class="field row">
           <div class="col-2">
             <label for="name">Name</label>
           </div>
           <div class="col-10">
             <input type="text" name="name" id="name"/>
+          </div>
+        </div>
+
+        <div class="field row">
+          <div class="col-2">
+            <label for="name">Description</label>
+          </div>
+          <div class="col-10">
+            <textarea name="description" cols="30" rows="5"></textarea>
           </div>
         </div>
 
@@ -35,6 +43,15 @@
                   <option value="<%= eatery.id %>"><%= eatery.name %></option>
               <% end %>
             </select>
+          </div>
+        </div>
+
+        <div class="field row">
+          <div class="col-2">
+            <label for="image-url">Image URL</label>
+          </div>
+          <div class="col-10">
+            <input type="text" name="image_url" id="image-url"/>
           </div>
         </div>
 

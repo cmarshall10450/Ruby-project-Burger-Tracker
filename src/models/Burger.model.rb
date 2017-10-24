@@ -4,23 +4,24 @@ require_relative('Eatery.model')
 
 class Burger
 
-	attr_reader :id, :name, :price, :eatery_id, :image_url
+	attr_reader :id, :name, :price, :description, :eatery_id, :image_url
 
 	def initialize(options)
-		@id        = options['id'].to_i if options['id']
-		@name      = options['name']
-		@price     = (options['price'].to_f).round(2)
-		@eatery_id = options['eatery_id'].to_i
-		@image_url = options['image_url']
+		@id          = options['id'].to_i if options['id']
+		@name        = options['name']
+		@description = options['description']
+		@price       = (options['price'].to_f).round(2)
+		@eatery_id   = options['eatery_id'].to_i
+		@image_url   = options['image_url']
 	end
 
 	def save
-		sql    = 'INSERT INTO burger (name, price, eatery_id, image_url)
+		sql    = 'INSERT INTO burger (name, price, description, eatery_id, image_url)
 			VALUES (
-  			$1, $2, $3, $4
+  			$1, $2, $3, $4, $5
  			)
 			RETURNING id;'
-		values = [@name, @price, @eatery_id, @image_url]
+		values = [@name, @price, @description, @eatery_id, @image_url]
 
 		@id = SQLRunner.run(sql, values)[0]['id'].to_i
 	end
