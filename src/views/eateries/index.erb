@@ -1,9 +1,26 @@
-<ul>
-  <% @eateries.each do |eatery| %>
-      <li>
-        <a href="/eateries/<%= eatery.id %>"><%= eatery.name %></a>
-      </li>
-  <% end %>
-</ul>
+<div class="eateries-page">
+  <div class="container">
+    <div class="section-heading">
+      <h1>All Eateries</h1>
+      <a class="btn btn-green" href="/eateries/new">Add New Eatery</a>
+    </div>
 
-<a href="/eateries/new">Add New Eatery</a>
+    <div class="eateries-list">
+      <div class="row">
+        <% if @eateries.count > 0 %>
+            <% @eateries.each do |eatery| %>
+                <div class="eatery">
+                  <div class="eatery-body">
+                    <img src="<%= eatery.image_url %>">
+                    <h1 href="/eateries/<%= eatery.id %>"><%= eatery.name %></h1>
+                  </div>
+                  <div class="eatery-footer">
+                    <a href="/eateries/<%= eatery.id %>" class="btn btn-blue">View Eatery</a>
+                  </div>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,18 +1,66 @@
-<img src="<%= @eatery.image_url %>">
-<h1><%= @eatery.name %></h1>
-<h3><%= @eatery.address %></h3>
-<h3><a href="<%= @eatery.website_url %>"><%= @eatery.website_url %></h3></a>
+<div class="single-eatery">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <img src="<%= @eatery.image_url %>">
+      </div>
+      <div class="col-8 eatery-details">
+        <h1><%= @eatery.name %></h1>
+        <h3><%= @eatery.address %></h3>
+        <h3><%= @eatery.telephone %></h3>
+        <h3><a href="<%= @eatery.website_url %>"><%= @eatery.website_url %></h3></a>
+      </div>
+    </div>
 
-<h2>Deals</h2>
-<ul>
-  <% @eatery.deals.each do |deal| %>
-      <li><%= deal.full_name %></li>
-  <% end %>
-</ul>
+    <div class="section">
+      <div class="section-heading">
+        <h1>Deals</h1>
+      </div>
+      <div class="deals">
+        <div class="row">
+          <% @eatery.deals.each do |deal| %>
+              <div class="col-4">
+                <div class="deal">
+                  <div class="deal-body">
+                    <img class="deal-image" src="<%= deal.eatery.image_url %>"/>
+                    <h1 class="deal-name" href="/deals/<%= deal.id %>"><%= deal.full_name %></h1>
+                  </div>
+                  <div class="deal-footer">
+                    <a class='btn btn-blue' href='/deals/<%= deal.id %>' class="view-deal">View Deal</a>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<h2>Burgers</h2>
-<ul>
-  <% @eatery.burgers.each do |burger| %>
-      <li><%= burger.name %></li>
-  <% end %>
-</ul>
+    <div class="section">
+      <div class="section-heading">
+        <h1>Burgers</h1>
+      </div>
+
+      <div class="burgers-list">
+
+        <div class="row">
+          <% if @eatery.burgers.count > 0 %>
+              <% @eatery.burgers.each do |burger| %>
+                  <div class="col-4">
+                    <div class="burger">
+                      <div class="burger-body">
+                        <img src="<%= burger.image_url %>">
+                        <h1 class="burger-name"><%= burger.name %></h1>
+                        <h2 class="price">&pound;<%= burger.price %></h2>
+                      </div>
+                      <div class="burger-footer">
+                        <a class='btn btn-blue' href='/burgers/<%= burger.id %>' class="view-burger">View Burger</a>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,5 @@
-.burgers-page {
+.burgers-page, .single-burger {
   background-color: #EFE5CB;
-}
-
-.container {
-  height: 95vh;
 }
 
 .burger {
@@ -24,7 +20,8 @@
 }
 
 .burger-body h1 {
-  color: rgba(0, 0, 0, 0.87);
+  color:         rgba(0, 0, 0, 0.87);
+  margin-bottom: 0.5rem;
 }
 
 .burger-footer {

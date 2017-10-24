@@ -1,5 +1,6 @@
 @import "deals.css";
 @import "burgers.css";
+@import "eateries.css";
 
 @font-face {
   font-family: 'Insaniburger';
@@ -15,9 +16,14 @@
   font-family: 'avenir';
 }
 
+img {
+  width: 100%;
+}
+
 .row {
-  display:   flex;
-  flex-wrap: wrap;
+  display:       flex;
+  flex-wrap:     wrap;
+  margin-bottom: 1rem;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
@@ -156,6 +162,7 @@ nav a:hover {
   margin:           0 auto;
   background-color: #fff;
   padding:          1rem;
+  min-height:       95vh;
 }
 
 .content-wrapper {

@@ -1,14 +1,38 @@
-<h1><%= @deal.full_name %></h1>
-<h2><%= @deal.day %></h2>
+<div class="single-deal">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <img src="<%= @deal.eatery.image_url %>" alt="">
+      </div>
+      <div class="col-8 deal-details">
+        <h1><%= @deal.full_name %></h1>
+        <h2 class="day"><%= @deal.day %></h2>
+      </div>
+    </div>
 
-<% if @deal.burgers.count > 0 %>
-    <h2>Burgers</h2>
-    <ul>
-      <% @deal.burgers.each do |burger| %>
-          <li>
-            <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
-            <span><%= burger.price %></span>
-          </li>
-      <% end %>
-    </ul>
-<% end %>
+    <% if @deal.burgers.count > 0 %>
+        <div class="section-heading">
+          <h1>Burgers</h1>
+        </div>
+        <div class="row">
+          <% @deal.burgers.each do |burger| %>
+              <div class="col-6">
+                <div class="burger">
+                  <div class="burger-body">
+                    <img src="<%= burger.image_url %>">
+                    <h1><%= burger.name %></h1>
+                    <div class="row burger-prices">
+                      <span class="old-price">&pound;<%= burger.price %></span>
+                      <span class="new-price">&pound;<%= ((burger.price.to_f / 100) * (100 - @deal.discount_rate.to_f)).round(2) %></span>
+                    </div>
+                  </div>
+                  <div class="burger-footer">
+                    <a class='btn btn-blue' href='/burgers/<%= burger.id %>' class="view-burger">View Burger</a>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -14,7 +14,8 @@
                   <div class="burger">
                     <div class="burger-body">
                       <img src="<%= burger.image_url %>">
-                      <h1><%= burger.name %></h1>
+                      <h1 class="burger-name"><%= burger.name %></h1>
+                      <h2 class="price">&pound;<%= burger.price %></h2>
                     </div>
                     <div class="burger-footer">
                       <a class='btn btn-blue' href='/burgers/<%= burger.id %>' class="view-burger">View Burger</a>

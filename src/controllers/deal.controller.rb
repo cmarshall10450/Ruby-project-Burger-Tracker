@@ -16,7 +16,8 @@ get '/deals/new' do
 end
 
 get '/deals/:id' do
-	@deal= Deal.find(params[:id])
+	@deal   = Deal.find(params[:id])
+	@eatery = @deal.eatery
 	erb(:'deals/single')
 end
 
