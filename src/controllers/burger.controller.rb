@@ -1,10 +1,16 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/Burger.model')
+require_relative('../models/Eatery.model')
 
 get '/burgers' do
 	@burgers = Burger.all
 	erb(:'burgers/index')
+end
+
+get '/burgers/new' do
+	@eateries = Eatery.all
+	erb(:'burgers/new')
 end
 
 get '/burgers/:id' do
@@ -12,9 +18,6 @@ get '/burgers/:id' do
 	erb(:'burgers/single')
 end
 
-get '/burgers/new' do
-	erb(:'burgers/new')
-end
 
 post '/burgers' do
 	burger = Burger.new(params)

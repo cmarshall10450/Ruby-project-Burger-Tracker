@@ -1,0 +1,25 @@
+<form action="/burgers" method="post">
+
+  <div class="field">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"/>
+  </div>
+
+  <div class="field">
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price"/>
+  </div>
+
+  <div class="field">
+    <label for="eatery">Eatery</label>
+    <select name="eatery_id" id="eatery">
+      <% @eateries.each do |eatery| %>
+          <option value="<%= eatery.id %>"><%= eatery.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-footer">
+    <input type="submit" value="Add Burger"/>
+  </div>
+</form>

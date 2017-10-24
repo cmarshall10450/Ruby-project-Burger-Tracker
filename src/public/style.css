@@ -1,0 +1,136 @@
+@import "deals.css";
+
+@font-face {
+  font-family: 'Insaniburger';
+  font-style:  normal;
+  font-weight: normal;
+  src:         local('./fonts/Insaniburger'), url('./fonts/Insanibu.woff') format('woff');
+}
+
+* {
+  padding:     0;
+  margin:      0;
+  box-sizing:  border-box;
+  font-family: 'avenir';
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex-grow: 1;
+}
+
+nav {
+  display:          flex;
+  justify-content:  space-between;
+  align-items:      center;
+  height:           65px;
+  padding:          0.75rem 2rem;
+  background-color: #cc0000;
+}
+
+nav .brand {
+  font-family: 'Insaniburger';
+  color:       #fff;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  padding:         0.5rem 1rem;
+  text-decoration: none;
+  color:           #fff;
+  transition:      all 0.3s;
+}
+
+nav a:hover {
+  background-color: #b71c1c
+}
+
+.btn {
+  background:      transparent;
+  border-radius:   5px;
+  color:           #fff;
+  padding:         0.5rem 0.75rem;
+  text-decoration: none;
+  transition:      background-color 0.3s ease;
+  border:          none;
+  font-size:       1rem;
+  cursor:          pointer;
+  font-weight:     700;
+}
+
+.btn-block {
+  display: block;
+  width:   100%;
+}
+
+.btn-green {
+  background-color: #00C851;
+}
+
+.btn-green:hover {
+  background-color: #007E33;
+}
+
+.btn-blue {
+  background-color: #33b5e5;
+}
+
+.btn-blue:hover {
+  background-color: #0099CC;
+}
+
+.feature {
+  height:              25vh;
+  background-image:    url('https://media.timeout.com/images/103902673/image.jpg');
+  background-position: center;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  display:             flex;
+  align-items:         center;
+  justify-content:     center;
+}
+
+.feature h1 {
+  color:      #fff;
+  text-align: center;
+}
+
+.container {
+  max-width: 970px;
+  margin:    0 auto;
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.section-heading {
+  padding-bottom:  1rem;
+  border-bottom:   1px solid rgba(0, 0, 0, 0.87);
+  width:           100%;
+  margin-bottom:   1rem;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding-right:   2rem;
+}
+
+.section-heading h1 {
+  color:       rgba(0, 0, 0, 0.87);
+  font-family: 'avenir';
+  font-size:   2rem;
+}

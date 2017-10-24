@@ -1,9 +1,13 @@
-<ul>
-  <% if @burgers.count > 0 %>
-      <% @burgers.each do |burger| %>
-          <li>
-            <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
-          </li>
-      <% end %>
-  <% end %>
-</ul>
+<div class="burgers-page">
+  <ul>
+    <% if @burgers.count > 0 %>
+        <% @burgers.each do |burger| %>
+            <li>
+              <a href="/burgers/<%= burger.id %>"><%= burger.name %></a>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+
+  <a href="/burgers/new">Add New Burger</a>
+</div>

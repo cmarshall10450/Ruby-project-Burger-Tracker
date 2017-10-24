@@ -1,7 +1,52 @@
-<ul>
-  <% @deals.each do |deal| %>
-      <li>
-        <a href="/deals/<%= deal.id %>"><%= deal.full_name %></a>
-      </li>
-  <% end %>
-</ul>
+<div class="deals-page">
+
+  <div class="feature">
+    <h1>Deals to Sink Your Teeth Into.</h1>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <form action="/">
+        <div class="field">
+          <select name="eatery_id" id="eatery">
+            <% @eateries.each do |eatery| %>
+                <option value="<%= eatery.id %>"><%= eatery.name %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <input class="btn btn-green btn-block" type="submit" value="Update Deals"/>
+      </form>
+    </div>
+
+    <div class="main-content">
+      <div class="section">
+        <div class="section-heading">
+          <h1>All Deals</h1>
+          <a href="/deals/new" class="btn btn-green">Add Deal</a>
+        </div>
+        <div class="deals">
+          <div class="row">
+            <% @deals.each do |deal| %>
+                <div class="col">
+                  <div class="deal">
+                    <div class="deal-body">
+                      <img class="deal-image" src="<%= deal.eatery.image_url %>"/>
+                      <h1 class="deal-name" href="/deals/<%= deal.id %>"><%= deal.full_name %></h1>
+                    </div>
+                    <div class="deal-footer">
+                      <a class='btn btn-blue' href='/deals/<%= deal.id %>' class="view-deal">View Deal</a>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

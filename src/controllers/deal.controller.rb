@@ -1,10 +1,18 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/Deal.model')
+require_relative('../models/Eatery.model')
 
 get '/deals' do
-	@deals = Deal.all
+	@deals    = Deal.all
+	@eateries = Eatery.all
 	erb(:'deals/index')
+end
+
+get '/deals/new' do
+	@days     = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+	@eateries = Eatery.all
+	erb(:'deals/new')
 end
 
 get '/deals/:id' do
@@ -12,9 +20,6 @@ get '/deals/:id' do
 	erb(:'deals/single')
 end
 
-get '/deals/new' do
-	erb(:'deals/new')
-end
 
 post '/deals' do
 	deal = Deal.new(params)

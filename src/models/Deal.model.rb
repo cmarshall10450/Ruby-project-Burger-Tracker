@@ -1,4 +1,5 @@
 require_relative('../db/SQLRunner')
+require_relative('Eatery.model')
 
 class Deal
 
@@ -42,11 +43,14 @@ class Deal
 	end
 
 	def full_name
-		sql    = "SELECT concat(deal.name, ' at ', eatery.name) AS full_deal_name FROM deal
+		sql    = 'SELECT deal.name AS deal_name, eatery.name AS eatery_name FROM deal
 					 INNER JOIN eatery
-					 ON deal.eatery_id = eatery.id;"
-		result = SQLRunner.run(sql)[0]
-		return result['full_deal_name']
+					 ON deal.eatery_id = eatery.id
+					 WHERE deal.id = $1;'
+		values = [@id]
+		result = SQLRunner.run(sql, values)[0]
+
+		return "#{result['deal_name']} at #{result['eatery_name']}"
 	end
 
 	def burgers
@@ -59,7 +63,17 @@ class Deal
 			Burger.new(burger)
 		}
 
+		puts burgers
+
 		return burgers
+	end
+
+	def eatery
+		sql    = 'SELECT * FROM eatery WHERE id = $1'
+		values = [@eatery_id]
+
+		eatery = SQLRunner.run(sql, values)[0]
+		return Eatery.new(eatery)
 	end
 
 end
