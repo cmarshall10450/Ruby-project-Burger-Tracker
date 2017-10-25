@@ -3,8 +3,8 @@
 }
 
 .feature {
-  height:              25vh;
-  background:          linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('https://media.timeout.com/images/103902673/image.jpg');
+  height:              30vh;
+  background:          linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('./images/deals-feature-bg.jpg');
   background-position: center;
   background-size:     cover;
   background-repeat:   no-repeat;
@@ -17,6 +17,13 @@
   color:      #fff;
   text-align: center;
   font-size:  3rem;
+}
+
+.add-deal-btn {
+  position: absolute;
+  top:      32vh;
+  right:    2rem;
+  z-index:  100;
 }
 
 .content-wrapper {
@@ -56,6 +63,7 @@
   display:         flex;
   flex-direction:  column;
   justify-content: space-between;
+  margin-top:      1rem;
 }
 
 .deal img {
@@ -113,4 +121,9 @@
   padding:          0.5rem 0.75rem;
   background-color: #e1e1e1;
   border-radius:    5px;
+}
+
+.single-deal form {
+  padding: 0;
+  border:  none;
 }

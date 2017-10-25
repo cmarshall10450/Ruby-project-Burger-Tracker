@@ -5,7 +5,9 @@
         <img src="<%= @eatery.image_url %>">
       </div>
       <div class="col-8 eatery-details">
-        <h1><%= @eatery.name %></h1>
+        <div class="section-heading">
+          <h1><%= @eatery.name %></h1>
+        </div>
         <h3><%= @eatery.address %></h3>
         <h3><%= @eatery.telephone %></h3>
         <h3><a href="<%= @eatery.website_url %>"><%= @eatery.website_url %></h3></a>

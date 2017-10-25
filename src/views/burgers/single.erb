@@ -5,9 +5,14 @@
         <img src="<%= @burger.image_url %>" alt="">
       </div>
       <div class="col-8">
-        <h1><%= @burger.name %></h1>
+        <div class="section-heading">
+          <h1><%= @burger.name %></h1>
+          <form action="/burgers/<%= @burger.id %>" method="post">
+            <input type="submit" value="Delete" class="btn btn-red">
+          </form>
+        </div>
         <h3><a href="/eateries/<%= @burger.eatery.id %>"><%= @burger.eatery.name %></a></h3>
-        <h3>&pound;<%= "%.2f" % @burger.price %></h3>
+        <h3 class="price">&pound;<%= "%.2f" % @burger.price %></h3>
         <p class="description"><%= @burger.description %></p>
       </div>
     </div>

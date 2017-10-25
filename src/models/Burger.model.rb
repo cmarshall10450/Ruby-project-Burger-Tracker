@@ -26,6 +26,17 @@ class Burger
 		@id = SQLRunner.run(sql, values)[0]['id'].to_i
 	end
 
+	def delete
+		# Delete all burgers
+		sql    = 'DELETE FROM burger WHERE id = $1'
+		values = [@id]
+		SQLRunner.run(sql, values)
+
+		# Delete all BurgerDeals associated with the specific burger
+		sql = 'DELETE FROM burger_deal WHERE burger_id = $1'
+		SQLRunner.run(sql, values)
+	end
+
 	def self.all
 		sql = 'SELECT * FROM burger;'
 
@@ -47,7 +58,8 @@ class Burger
 	def deals
 		sql    = 'SELECT deal.* FROM deal
 					 INNER JOIN burger_deal
-					 ON burger_id = $1;'
+					 ON deal.id= burger_deal.deal_id
+					 WHERE burger_id = $1;'
 		values = [@id]
 		deals  = SQLRunner.run(sql, values).map { |deal|
 			Deal.new(deal)

@@ -50,15 +50,20 @@
             </select>
           </div>
 
-          <div>
+          <div class="col-12">
             <h3>Burgers</h3>
             <div class="field row">
               <div class="col-12">
-                <div class="row">
-                  <% @burgers.each do |burger| %>
-                      <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/> <%= burger.name %>
-                  <% end %>
-                </div>
+                <% @burgers.each do |burger| %>
+                    <div class="row">
+                      <div class="col-1">
+                        <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/>
+                      </div>
+                      <div class="col-11">
+                        <%= burger.name %>
+                      </div>
+                    </div>
+                <% end %>
               </div>
             </div>
           </div>

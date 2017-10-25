@@ -4,7 +4,11 @@
     <h1>Deals to Sink Your Teeth Into.</h1>
   </div>
 
-  <div class="btn btn-green btn-fab"><i class="fa fa-plus" aria-hidden="true"></i></div>
+  <div class="add-deal-btn">
+    <a href="/deals/new" class="btn btn-green btn-fab">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+  </div>
 
   <div class="content-wrapper">
     <div class="sidebar">
@@ -34,23 +38,27 @@
                     <h1><%= day %></h1>
                   </div>
 
-                  <div class="deals">
-                    <div class="row">
-                      <% deals.each do |deal| %>
-                          <div class="col-3">
-                            <div class="deal">
-                              <div class="deal-body">
-                                <img class="deal-image" src="<%= deal.eatery.image_url %>"/>
-                                <h1 class="deal-name" href="/deals/<%= deal.id %>"><%= deal.full_name %></h1>
+                  <% if deals.count > 0 %>
+                      <div class="deals">
+                        <div class="row">
+                          <% deals.each do |deal| %>
+                              <div class="col-3">
+                                <div class="deal">
+                                  <div class="deal-body">
+                                    <img class="deal-image" src="<%= deal.eatery.image_url %>"/>
+                                    <h1 class="deal-name" href="/deals/<%= deal.id %>"><%= deal.full_name %></h1>
+                                  </div>
+                                  <div class="deal-footer">
+                                    <a class='btn btn-blue' href='/deals/<%= deal.id %>' class="view-deal">View Deal</a>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="deal-footer">
-                                <a class='btn btn-blue' href='/deals/<%= deal.id %>' class="view-deal">View Deal</a>
-                              </div>
-                            </div>
-                          </div>
-                      <% end %>
-                    </div>
-                  </div>
+                          <% end %>
+                        </div>
+                      </div>
+                  <% else %>
+                      <p>There are currently no deals for this day.</p>
+                  <% end %>
                 </div>
             <% end %>
         <% else %>

@@ -25,6 +25,17 @@ class Deal
 		@id = SQLRunner.run(sql, values)[0]['id'].to_i
 	end
 
+	def delete
+		# Delete all deals
+		sql    = 'DELETE FROM burger WHERE id = $1'
+		values = [@id]
+		SQLRunner.run(sql, values)
+
+		# Delete all BurgerDeals associated with the specific deal
+		sql = 'DELETE FROM burger_deal WHERE deal_id= $1'
+		SQLRunner.run(sql, values)
+	end
+
 	def self.all
 		sql = 'SELECT * FROM deal;'
 

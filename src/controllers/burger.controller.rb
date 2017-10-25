@@ -25,3 +25,10 @@ post '/burgers' do
 
 	redirect to '/burgers'
 end
+
+post '/burgers/:id' do
+	burger = Burger.find(params[:id])
+	burger.delete
+
+	redirect to '/burgers'
+end
