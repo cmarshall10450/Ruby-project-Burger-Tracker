@@ -22,8 +22,8 @@
                     <img src="<%= burger.image_url %>">
                     <h1><%= burger.name %></h1>
                     <div class="row burger-prices">
-                      <span class="old-price">&pound;<%= burger.price %></span>
-                      <span class="new-price">&pound;<%= ((burger.price.to_f / 100) * (100 - @deal.discount_rate.to_f)).round(2) %></span>
+                      <span class="old-price">&pound;<%= "%.2f" % burger.price %></span>
+                      <span class="new-price">&pound;<%= "%.2f" % ((burger.price.to_f / 100) * (100 - @deal.discount_rate.to_f)).round(2) %></span>
                     </div>
                     <p class="description"><%= burger.description %></p>
                   </div>

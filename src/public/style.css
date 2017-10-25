@@ -146,6 +146,16 @@ nav a:hover {
   width:   100%;
 }
 
+.btn-fab {
+  font-size:       2rem;
+  width:           96px;
+  height:          96px;
+  border-radius:   50% !important;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+}
+
 .btn-green {
   background-color: #00C851;
 }

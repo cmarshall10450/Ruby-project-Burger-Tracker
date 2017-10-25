@@ -8,10 +8,12 @@ require_relative('../models/Burger.model')
 get '/deals' do
 
 	if params['selected_day'] && params['selected_day'] != 'all'
-		@deals        = Deal.find_by_day(params['selected_day'])
-		@selected_day = params['selected_day']
+		@sshow_all_deals = false
+		@deals           = Deal.find_by_day(params['selected_day'])
+		@selected_day    = params['selected_day']
 	else
-		@deals = Deal.all
+		@show_all_deals = true
+		@deals          = Deal.get_all_deals_by_day
 	end
 
 	@days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']

@@ -1,3 +1,4 @@
+require('time')
 require_relative('../db/SQLRunner')
 require_relative('Eatery.model')
 
@@ -51,6 +52,22 @@ class Deal
 		}
 
 		return deals
+	end
+
+	def self.get_all_deals_by_day
+		all_deals = {}
+
+		days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+		current_day = Time.now.wday
+		days.rotate!(current_day - 1)
+
+		days.each do |day|
+			deals          = Deal.find_by_day(day)
+			all_deals[day] = deals
+		end
+
+		return all_deals
 	end
 
 	def full_name

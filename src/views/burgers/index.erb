@@ -15,7 +15,7 @@
                     <div class="burger-body">
                       <img src="<%= burger.image_url %>">
                       <h1 class="burger-name"><%= burger.name %></h1>
-                      <h2 class="price">&pound;<%= burger.price %></h2>
+                      <h2 class="price">&pound;<%= "%.2f" % burger.price %></h2>
                       <p class="description"><%= burger.description %></p>
                     </div>
                     <div class="burger-footer">

@@ -54,10 +54,11 @@
             <h3>Burgers</h3>
             <div class="field row">
               <div class="col-12">
-                <div class="row"></div>
-                <% @burgers.each do |burger| %>
-                    <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/> <%= burger.name %>
-                <% end %>
+                <div class="row">
+                  <% @burgers.each do |burger| %>
+                      <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/> <%= burger.name %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>

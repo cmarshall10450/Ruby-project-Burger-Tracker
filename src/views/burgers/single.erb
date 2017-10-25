@@ -7,7 +7,7 @@
       <div class="col-8">
         <h1><%= @burger.name %></h1>
         <h3><a href="/eateries/<%= @burger.eatery.id %>"><%= @burger.eatery.name %></a></h3>
-        <h3>&pound;<%= @burger.price %></h3>
+        <h3>&pound;<%= "%.2f" % @burger.price %></h3>
         <p class="description"><%= @burger.description %></p>
       </div>
     </div>
