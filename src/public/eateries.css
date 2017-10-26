@@ -34,9 +34,17 @@
   align-items:                center;
 }
 
-.eatery-details h1 {
+.eatery-details .section-heading {
   margin-top:    2rem;
   margin-bottom: 2rem;
+}
+
+.eatery-details h3, .eatery-details i {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.eatery-details a {
+  text-decoration: none;
 }
 
 .single-eatery form {

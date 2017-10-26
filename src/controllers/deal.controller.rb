@@ -40,7 +40,7 @@ post '/deals' do
 	deal = Deal.new(params)
 	deal.save
 
-	params["burger_id"].each do |burger_id|
+	params["burger_ids"].each do |burger_id|
 		options              = {}
 		options["deal_id"]   = deal.id
 		options["burger_id"] = burger_id

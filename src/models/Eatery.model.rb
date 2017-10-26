@@ -33,7 +33,10 @@ class Eatery
 	end
 
 	def delete
+		sql    = 'DELETE FROM eatery WHERE id = $1'
+		values = [@id]
 
+		SQLRunner.run(sql, values)
 	end
 
 	def self.find(id)

@@ -5,7 +5,12 @@
         <img src="<%= @deal.eatery.image_url %>" alt="">
       </div>
       <div class="col-8 deal-details">
-        <h1><%= @deal.full_name %></h1>
+        <div class="section-heading">
+          <h1><%= @deal.full_name %></h1>
+          <form action="/deals/<%= @deal.id %>" method="post">
+            <input type="submit" value="Delete" class="btn btn-red">
+          </form>
+        </div>
         <h2 class="day"><%= @deal.day %></h2>
       </div>
     </div>

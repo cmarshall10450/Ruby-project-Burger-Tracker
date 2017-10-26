@@ -52,15 +52,15 @@
 
           <div class="col-12">
             <h3>Burgers</h3>
-            <div class="field row">
+            <div class="field row burger-choice">
               <div class="col-12">
                 <% @burgers.each do |burger| %>
-                    <div class="row">
+                    <div class="field row">
                       <div class="col-1">
-                        <input type="checkbox" name="burger_id[]" value="<%= burger.id %>"/>
+                        <input type="checkbox" name="burger_ids[]" value="<%= burger.id %>" id="<%= burger.name %>"/>
                       </div>
                       <div class="col-11">
-                        <%= burger.name %>
+                        <label for="<%= burger.name %>"><%= burger.name %></label>
                       </div>
                     </div>
                 <% end %>

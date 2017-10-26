@@ -14,22 +14,24 @@ CREATE TABLE eatery (
 );
 
 CREATE TABLE burger (
-  id        SERIAL PRIMARY KEY,
-  name      VARCHAR(255),
-  price     REAL,
-  eatery_id INT REFERENCES eatery (id) ON DELETE CASCADE
+  id          SERIAL PRIMARY KEY,
+  name        VARCHAR(255),
+  description VARCHAR(1024),
+  price       REAL,
+  eatery_id   INT REFERENCES eatery (id) ON DELETE CASCADE,
+  image_url   VARCHAR(255)
 );
 
 CREATE TABLE deal (
   id            SERIAL PRIMARY KEY,
   name          VARCHAR(255),
-  day           INT,
+  day           VARCHAR(16),
   discount_rate REAL,
   eatery_id     INT REFERENCES eatery (id) ON DELETE CASCADE
 );
 
 CREATE TABLE burger_deal (
   id        SERIAL PRIMARY KEY,
-  burger_id INT REFERENCES burger (id) ON DELETE CASCADE,
-  deal_id   INT REFERENCES deal (id) ON DELETE CASCADE
+  burger_id INT REFERENCES burger (id),
+  deal_id   INT REFERENCES deal (id)
 );

@@ -22,3 +22,10 @@ post '/eateries' do
 
 	redirect to '/eateries'
 end
+
+post '/eateries/:id' do
+	eatery = Eatery.find(params[:id])
+	eatery.delete
+
+	redirect to '/eateries'
+end

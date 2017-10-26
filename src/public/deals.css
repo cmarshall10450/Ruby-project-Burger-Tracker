@@ -92,7 +92,7 @@
 .deal-details {
 }
 
-.deal-details h1 {
+.deal-details .section-heading {
   margin-top:    2rem;
   margin-bottom: 2rem;
 }
@@ -126,4 +126,14 @@
 .single-deal form {
   padding: 0;
   border:  none;
+}
+
+.no-deals {
+  font-size: 1.4rem;
+}
+
+.no-deals i {
+  font-size:    1.6rem;
+  color:        #b71c1c;
+  margin-right: 1rem;
 }

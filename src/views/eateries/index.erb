@@ -9,13 +9,15 @@
       <div class="row">
         <% if @eateries.count > 0 %>
             <% @eateries.each do |eatery| %>
-                <div class="eatery">
-                  <div class="eatery-body">
-                    <img src="<%= eatery.image_url %>">
-                    <h1 href="/eateries/<%= eatery.id %>"><%= eatery.name %></h1>
-                  </div>
-                  <div class="eatery-footer">
-                    <a href="/eateries/<%= eatery.id %>" class="btn btn-blue">View Eatery</a>
+                <div class="col-4">
+                  <div class="eatery">
+                    <div class="eatery-body">
+                      <img src="<%= eatery.image_url %>">
+                      <h1 href="/eateries/<%= eatery.id %>"><%= eatery.name %></h1>
+                    </div>
+                    <div class="eatery-footer">
+                      <a href="/eateries/<%= eatery.id %>" class="btn btn-blue">View Eatery</a>
+                    </div>
                   </div>
                 </div>
             <% end %>
